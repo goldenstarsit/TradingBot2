@@ -1,8 +1,4 @@
 import {
-  VariationCalculator,
-} from "./variationCalculator";
-
-import {
   AssetRankingEngine,
 } from "./assetRankingEngine";
 
@@ -14,14 +10,33 @@ import type {
   MarketAnalysis,
 } from "../types/marketAnalysis";
 
+import type {
+  RankedAsset,
+} from "./assetRankingEngine";
+
+import type {
+  TradingSignalResult,
+} from "./tradingSignalGenerator";
+
+
+export interface MarketAnalysisResult {
+
+
+  ranked:
+    RankedAsset[];
+
+
+  signals:
+    TradingSignalResult[];
+
+
+}
+
 
 export class MarketAnalysisPipeline {
 
 
   constructor(
-
-    private readonly variationCalculator =
-      new VariationCalculator(),
 
     private readonly rankingEngine =
       new AssetRankingEngine(),
@@ -34,28 +49,23 @@ export class MarketAnalysisPipeline {
 
   public analyze(
     analyses: MarketAnalysis[]
-  ) {
-
-    const ranked =
-      this.rankingEngine.rank(
-        analyses
-      );
-
-
-    const signals =
-      analyses.map(
-        analysis =>
-          this.signalGenerator.generate(
-            analysis
-          )
-      );
+  ): MarketAnalysisResult {
 
 
     return {
 
-      ranked,
+      ranked:
+        this.rankingEngine.rank(
+          analyses
+        ),
 
-      signals,
+      signals:
+        analyses.map(
+          analysis =>
+            this.signalGenerator.generate(
+              analysis
+            )
+        ),
 
     };
 
