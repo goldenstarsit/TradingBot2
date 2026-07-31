@@ -13,3 +13,7 @@ export {
 export {
   BinanceWebSocketAdapter,
 } from "./adapters/binanceWebSocketAdapter";
+
+export {
+  BinanceSocketClient,
+} from "./services/binanceSocketClient";
