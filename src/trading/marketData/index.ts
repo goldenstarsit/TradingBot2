@@ -14,3 +14,11 @@ export {
 export type {
   PriceHistory,
 } from "./services/rollingHistory";
+
+export {
+  PriceAnalyzer,
+} from "./services/priceAnalyzer";
+
+export type {
+  PriceAnalysis,
+} from "./services/priceAnalyzer";
