@@ -6,6 +6,10 @@ import {
   ReconnectManager,
 } from "./reconnectManager";
 
+import {
+  WebSocketHealthMonitor,
+} from "./websocketHealthMonitor";
+
 
 export class BinanceSocketClient {
 
@@ -22,6 +26,10 @@ export class BinanceSocketClient {
     ReconnectManager;
 
 
+  private readonly healthMonitor:
+    WebSocketHealthMonitor;
+
+
   private symbols:
     string[];
 
@@ -36,6 +44,9 @@ export class BinanceSocketClient {
 
     this.reconnectManager =
       new ReconnectManager();
+
+    this.healthMonitor =
+      new WebSocketHealthMonitor();
 
     this.symbols =
       [];
@@ -74,6 +85,8 @@ export class BinanceSocketClient {
     this.socket.onopen =
       () => {
 
+        this.healthMonitor.connectedStatus();
+
         this.reconnectManager.reset();
 
       };
@@ -104,6 +117,9 @@ export class BinanceSocketClient {
         }
 
 
+        this.healthMonitor.messageReceived();
+
+
         this.emit({
 
           symbol:
@@ -123,6 +139,8 @@ export class BinanceSocketClient {
     this.socket.onerror =
       () => {
 
+        this.healthMonitor.disconnectedStatus();
+
         this.reconnect();
 
       };
@@ -130,6 +148,8 @@ export class BinanceSocketClient {
 
     this.socket.onclose =
       () => {
+
+        this.healthMonitor.disconnectedStatus();
 
         this.reconnect();
 
@@ -145,6 +165,9 @@ export class BinanceSocketClient {
       [];
 
 
+    this.healthMonitor.disconnectedStatus();
+
+
     if (this.socket) {
 
       this.socket.close();
@@ -153,6 +176,14 @@ export class BinanceSocketClient {
         null;
 
     }
+
+  }
+
+
+  public isHealthy():
+    boolean {
+
+    return this.healthMonitor.isHealthy();
 
   }
 
