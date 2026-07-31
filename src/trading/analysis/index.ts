@@ -17,3 +17,11 @@ export {
 export type {
   PricePoint,
 } from "./services/timeWindowAnalyzer";
+
+export {
+  AssetRankingEngine,
+} from "./services/assetRankingEngine";
+
+export type {
+  RankedAsset,
+} from "./services/assetRankingEngine";
