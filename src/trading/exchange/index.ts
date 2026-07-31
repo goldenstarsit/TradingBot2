@@ -13,3 +13,7 @@ export {
 export type {
   BinancePriceResponse,
 } from "./services/binancePriceProvider";
+
+export {
+  ExchangeManager,
+} from "./services/exchangeManager";
