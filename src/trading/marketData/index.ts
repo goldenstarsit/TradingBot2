@@ -34,3 +34,7 @@ export type {
 export {
   MarketDataManager,
 } from "./services/marketDataManager";
+
+export {
+  MarketDataBridge,
+} from "./services/marketDataBridge";
