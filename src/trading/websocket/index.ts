@@ -7,5 +7,9 @@ export {
 } from "./services/websocketManager";
 
 export {
+  MarketStreamService,
+} from "./services/marketStreamService";
+
+export {
   BinanceWebSocketAdapter,
 } from "./adapters/binanceWebSocketAdapter";
