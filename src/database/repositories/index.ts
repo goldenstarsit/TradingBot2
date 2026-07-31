@@ -4,3 +4,4 @@ export { IndicatorRepository } from "./indicatorRepository";
 export { SymbolRepository } from "./symbolRepository";
 export { PortfolioRepository } from "./portfolioRepository";
 export { PositionRepository } from "./positionRepository";
+export { OrderRepository } from "./orderRepository";
