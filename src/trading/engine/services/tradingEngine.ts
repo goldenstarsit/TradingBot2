@@ -3,40 +3,37 @@ import type {
   TradingSignal,
 } from "../types/trading";
 
+import type {
+  StrategyManager,
+} from "../../strategy";
+
 
 export class TradingEngine {
+
+  constructor(
+    private readonly strategyManager:
+      StrategyManager
+  ) {}
+
 
   public evaluate(
     context: TradingContext
   ): TradingSignal | null {
 
-    if (
-      context.differencePercent >= 0
-    ) {
+    const strategy =
+      this.strategyManager.getActive();
+
+
+    if (!strategy) {
 
       return null;
 
     }
 
 
-    return {
-
-      symbol:
-        context.symbol,
-
-      side:
-        "BUY",
-
-      price:
-        context.currentPrice,
-
-      timestamp:
-        Date.now(),
-
-      reason:
-        "Price below average",
-
-    };
+    return strategy.evaluate(
+      context
+    );
 
   }
 
