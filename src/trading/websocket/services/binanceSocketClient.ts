@@ -2,6 +2,10 @@ import type {
   Ticker,
 } from "../types/ticker";
 
+import {
+  ReconnectManager,
+} from "./reconnectManager";
+
 
 export class BinanceSocketClient {
 
@@ -14,6 +18,14 @@ export class BinanceSocketClient {
     Array<(ticker: Ticker) => void>;
 
 
+  private readonly reconnectManager:
+    ReconnectManager;
+
+
+  private symbols:
+    string[];
+
+
   constructor() {
 
     this.socket =
@@ -22,12 +34,22 @@ export class BinanceSocketClient {
     this.listeners =
       [];
 
+    this.reconnectManager =
+      new ReconnectManager();
+
+    this.symbols =
+      [];
+
   }
 
 
   public connect(
     symbols: string[]
   ): void {
+
+
+    this.symbols =
+      symbols;
 
 
     const streams =
@@ -47,6 +69,14 @@ export class BinanceSocketClient {
       new WebSocket(
         url
       );
+
+
+    this.socket.onopen =
+      () => {
+
+        this.reconnectManager.reset();
+
+      };
 
 
     this.socket.onmessage =
@@ -89,10 +119,30 @@ export class BinanceSocketClient {
 
       };
 
+
+    this.socket.onerror =
+      () => {
+
+        this.reconnect();
+
+      };
+
+
+    this.socket.onclose =
+      () => {
+
+        this.reconnect();
+
+      };
+
   }
 
 
   public disconnect(): void {
+
+
+    this.symbols =
+      [];
 
 
     if (this.socket) {
@@ -115,6 +165,31 @@ export class BinanceSocketClient {
 
     this.listeners.push(
       listener
+    );
+
+  }
+
+
+  private reconnect(): void {
+
+
+    if (
+      this.symbols.length === 0
+    ) {
+
+      return;
+
+    }
+
+
+    this.reconnectManager.schedule(
+      () => {
+
+        this.connect(
+          this.symbols
+        );
+
+      }
     );
 
   }
