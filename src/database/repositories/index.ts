@@ -8,6 +8,8 @@ export { OrderRepository } from "./orderRepository";
 export { TradeRepository } from "./tradeRepository";
 export { TradeLogRepository } from "./tradeLogRepository";
 export { StrategyConfigRepository } from "./strategyConfigRepository";
+export { IndicatorConfigRepository } from "./indicatorConfigRepository";
 
 export type { TradeLog } from "./tradeLogRepository";
 export type { StrategyConfig } from "./strategyConfigRepository";
+export type { IndicatorConfig } from "./indicatorConfigRepository";
