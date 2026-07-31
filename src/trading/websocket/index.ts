@@ -17,3 +17,7 @@ export {
 export {
   BinanceSocketClient,
 } from "./services/binanceSocketClient";
+
+export {
+  ReconnectManager,
+} from "./services/reconnectManager";
