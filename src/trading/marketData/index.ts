@@ -30,3 +30,7 @@ export {
 export type {
   PriceRanking,
 } from "./services/rankingService";
+
+export {
+  MarketDataManager,
+} from "./services/marketDataManager";
