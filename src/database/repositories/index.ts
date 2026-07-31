@@ -6,3 +6,5 @@ export { PortfolioRepository } from "./portfolioRepository";
 export { PositionRepository } from "./positionRepository";
 export { OrderRepository } from "./orderRepository";
 export { TradeRepository } from "./tradeRepository";
+export { TradeLogRepository } from "./tradeLogRepository";
+export type { TradeLog } from "./tradeLogRepository";
