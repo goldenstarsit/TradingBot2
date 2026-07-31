@@ -9,3 +9,7 @@ export {
 export {
   StrategyManager,
 } from "./services/strategyManager";
+
+export {
+  RotationStrategy,
+} from "./strategies/rotationStrategy";
