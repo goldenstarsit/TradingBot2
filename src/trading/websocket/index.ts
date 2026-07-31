@@ -21,3 +21,7 @@ export {
 export {
   ReconnectManager,
 } from "./services/reconnectManager";
+
+export {
+  WebSocketHealthMonitor,
+} from "./services/websocketHealthMonitor";
