@@ -5,3 +5,11 @@ export type {
 export {
   BinanceAdapter,
 } from "./adapters/binanceAdapter";
+
+export {
+  BinancePriceProvider,
+} from "./services/binancePriceProvider";
+
+export type {
+  BinancePriceResponse,
+} from "./services/binancePriceProvider";
