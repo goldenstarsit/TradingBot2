@@ -17,10 +17,33 @@ export class RotationStrategy
   ): TradingSignal | null {
 
 
-    void context;
+    if (
+      context.differencePercent >= 0
+    ) {
+
+      return null;
+
+    }
 
 
-    return null;
+    return {
+
+      symbol:
+        context.symbol,
+
+      side:
+        "BUY",
+
+      price:
+        context.currentPrice,
+
+      timestamp:
+        Date.now(),
+
+      reason:
+        "Negative price variation",
+
+    };
 
   }
 
