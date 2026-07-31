@@ -5,3 +5,7 @@ export type {
 export {
   WebSocketManager,
 } from "./services/websocketManager";
+
+export {
+  BinanceWebSocketAdapter,
+} from "./adapters/binanceWebSocketAdapter";
