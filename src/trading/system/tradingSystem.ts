@@ -1,10 +1,12 @@
 import {
   WebSocketRuntimeManager,
+  BinanceSocketClient,
+  MarketStreamService,
 } from "../websocket";
 
 import {
-  BinanceSocketClient,
-} from "../websocket";
+  MarketDataManager,
+} from "../marketData";
 
 
 export class TradingSystem {
@@ -14,11 +16,27 @@ export class TradingSystem {
     WebSocketRuntimeManager;
 
 
-  constructor() {
+  private readonly marketStream:
+    MarketStreamService;
+
+
+  constructor(
+
+    private readonly marketData:
+      MarketDataManager
+
+  ) {
 
 
     const socketClient =
       new BinanceSocketClient();
+
+
+    this.marketStream =
+      new MarketStreamService(
+        socketClient,
+        this.marketData
+      );
 
 
     this.websocketRuntime =
@@ -34,7 +52,7 @@ export class TradingSystem {
   ): void {
 
 
-    this.websocketRuntime.start(
+    this.marketStream.start(
       symbols
     );
 
