@@ -18,32 +18,58 @@ export class RotationStrategy
 
 
     if (
-      context.differencePercent >= 0
+      context.differencePercent < 0
     ) {
 
-      return null;
+      return {
+
+        symbol:
+          context.symbol,
+
+        side:
+          "BUY",
+
+        price:
+          context.currentPrice,
+
+        timestamp:
+          Date.now(),
+
+        reason:
+          "Negative price variation",
+
+      };
 
     }
 
 
-    return {
+    if (
+      context.differencePercent > 0
+    ) {
 
-      symbol:
-        context.symbol,
+      return {
 
-      side:
-        "BUY",
+        symbol:
+          context.symbol,
 
-      price:
-        context.currentPrice,
+        side:
+          "SELL",
 
-      timestamp:
-        Date.now(),
+        price:
+          context.currentPrice,
 
-      reason:
-        "Negative price variation",
+        timestamp:
+          Date.now(),
 
-    };
+        reason:
+          "Positive price variation",
+
+      };
+
+    }
+
+
+    return null;
 
   }
 
