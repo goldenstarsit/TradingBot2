@@ -22,3 +22,11 @@ export {
 export type {
   PriceAnalysis,
 } from "./services/priceAnalyzer";
+
+export {
+  RankingService,
+} from "./services/rankingService";
+
+export type {
+  PriceRanking,
+} from "./services/rankingService";
