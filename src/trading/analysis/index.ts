@@ -34,3 +34,7 @@ export type {
   TradingSignal,
   TradingSignalResult,
 } from "./services/tradingSignalGenerator";
+
+export {
+  MarketAnalysisPipeline,
+} from "./services/marketAnalysisPipeline";
