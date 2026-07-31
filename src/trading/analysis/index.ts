@@ -9,3 +9,11 @@ export {
 export {
   RollingPriceAnalyzer,
 } from "./services/rollingPriceAnalyzer";
+
+export {
+  TimeWindowAnalyzer,
+} from "./services/timeWindowAnalyzer";
+
+export type {
+  PricePoint,
+} from "./services/timeWindowAnalyzer";
