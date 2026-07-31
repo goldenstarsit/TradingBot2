@@ -5,3 +5,7 @@ export type {
 export {
   VariationCalculator,
 } from "./services/variationCalculator";
+
+export {
+  RollingPriceAnalyzer,
+} from "./services/rollingPriceAnalyzer";
