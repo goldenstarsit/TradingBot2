@@ -25,3 +25,7 @@ export {
 export {
   WebSocketHealthMonitor,
 } from "./services/websocketHealthMonitor";
+
+export {
+  WebSocketRuntimeManager,
+} from "./services/websocketRuntimeManager";
