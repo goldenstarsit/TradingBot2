@@ -6,11 +6,27 @@ import type {
   PriceTick,
 } from "../../marketData";
 
+import {
+  BinancePriceProvider,
+} from "../services/binancePriceProvider";
+
 
 export class BinanceAdapter implements Exchange {
 
   public readonly name =
     "Binance";
+
+
+  private readonly priceProvider:
+    BinancePriceProvider;
+
+
+  constructor() {
+
+    this.priceProvider =
+      new BinancePriceProvider();
+
+  }
 
 
   public async connect(): Promise<void> {
@@ -28,22 +44,39 @@ export class BinanceAdapter implements Exchange {
 
 
   public async getPrice(
-    _symbol: string
+    symbol: string
   ): Promise<number> {
 
-    return 0;
+    return this.priceProvider.getPrice(
+      symbol
+    );
 
   }
 
 
   public async subscribePrice(
-    _symbol: string,
-    _callback: (
+    symbol: string,
+    callback: (
       tick: PriceTick
     ) => void
   ): Promise<void> {
 
-    return;
+    const price =
+      await this.getPrice(
+        symbol
+      );
+
+
+    callback({
+
+      symbol,
+
+      price,
+
+      timestamp:
+        Date.now(),
+
+    });
 
   }
 
