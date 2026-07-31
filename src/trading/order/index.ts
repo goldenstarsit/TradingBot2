@@ -8,3 +8,7 @@ export type {
 export {
   OrderExecutor,
 } from "./services/orderExecutor";
+
+export {
+  OrderBuilder,
+} from "./services/orderBuilder";
