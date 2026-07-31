@@ -11,6 +11,9 @@ import type {
 const PROFIT_TARGET =
   1.0;
 
+const STOP_LOSS =
+  -3.0;
+
 
 export class RotationStrategy
   implements TradingStrategy {
@@ -19,6 +22,24 @@ export class RotationStrategy
   public evaluate(
     context: TradingContext
   ): TradingSignal | null {
+
+
+    if (
+      context.differencePercent <=
+      STOP_LOSS
+    ) {
+
+      return {
+
+        symbol: context.symbol,
+        side: "SELL",
+        price: context.currentPrice,
+        timestamp: Date.now(),
+        reason: "Stop loss reached",
+
+      };
+
+    }
 
 
     if (
