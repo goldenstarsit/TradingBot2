@@ -1,15 +1,4 @@
 export type {
-  Strategy,
-} from "./types/strategy";
-
-export {
-  BaseStrategy,
-} from "./services/baseStrategy";
-
-export {
+  TradingStrategy,
   StrategyManager,
-} from "./services/strategyManager";
-
-export {
-  RotationStrategy,
-} from "./strategies/rotationStrategy";
+} from "./types/tradingStrategy";
