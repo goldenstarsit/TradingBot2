@@ -9,3 +9,7 @@ export type {
 export {
   defaultTradingConfig,
 } from "./config/tradingConfig";
+
+export {
+  TradingBootstrap,
+} from "./bootstrap/tradingBootstrap";
