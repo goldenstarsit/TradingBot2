@@ -25,3 +25,12 @@ export {
 export type {
   RankedAsset,
 } from "./services/assetRankingEngine";
+
+export {
+  TradingSignalGenerator,
+} from "./services/tradingSignalGenerator";
+
+export type {
+  TradingSignal,
+  TradingSignalResult,
+} from "./services/tradingSignalGenerator";
