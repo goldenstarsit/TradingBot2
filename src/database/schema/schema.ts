@@ -78,4 +78,102 @@ export const DATABASE_TABLES: readonly DatabaseTable[] = [
       );
     `,
   },
+  {
+    name: "symbols",
+    sql: `
+      CREATE TABLE IF NOT EXISTS symbols (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        symbol TEXT NOT NULL UNIQUE,
+        base_asset TEXT NOT NULL,
+        quote_asset TEXT NOT NULL,
+        active INTEGER NOT NULL DEFAULT 1,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `,
+  },
+  {
+    name: "portfolio",
+    sql: `
+      CREATE TABLE IF NOT EXISTS portfolio (
+        asset TEXT PRIMARY KEY NOT NULL,
+        free REAL NOT NULL,
+        locked REAL NOT NULL,
+        updated_at TEXT NOT NULL
+      );
+    `,
+  },
+  {
+    name: "positions",
+    sql: `
+      CREATE TABLE IF NOT EXISTS positions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        symbol_id INTEGER NOT NULL,
+        strategy_id INTEGER NOT NULL,
+        quantity REAL NOT NULL,
+        entry_price REAL NOT NULL,
+        status TEXT NOT NULL,
+        opened_at TEXT NOT NULL,
+        closed_at TEXT,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL,
+        FOREIGN KEY (symbol_id)
+          REFERENCES symbols(id),
+        FOREIGN KEY (strategy_id)
+          REFERENCES strategies(id)
+      );
+    `,
+  },
+  {
+    name: "orders",
+    sql: `
+      CREATE TABLE IF NOT EXISTS orders (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        position_id INTEGER,
+        exchange_order_id TEXT,
+        symbol TEXT NOT NULL,
+        side TEXT NOT NULL,
+        type TEXT NOT NULL,
+        quantity REAL NOT NULL,
+        price REAL,
+        status TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL,
+        FOREIGN KEY (position_id)
+          REFERENCES positions(id)
+      );
+    `,
+  },
+  {
+    name: "trades",
+    sql: `
+      CREATE TABLE IF NOT EXISTS trades (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        order_id INTEGER NOT NULL,
+        symbol TEXT NOT NULL,
+        side TEXT NOT NULL,
+        quantity REAL NOT NULL,
+        price REAL NOT NULL,
+        fee REAL NOT NULL,
+        profit_loss REAL,
+        executed_at TEXT NOT NULL,
+        FOREIGN KEY (order_id)
+          REFERENCES orders(id)
+      );
+    `,
+  },
+  {
+    name: "trade_logs",
+    sql: `
+      CREATE TABLE IF NOT EXISTS trade_logs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        trade_id INTEGER NOT NULL,
+        message TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        FOREIGN KEY (trade_id)
+          REFERENCES trades(id)
+          ON DELETE CASCADE
+      );
+    `,
+  },
 ];
