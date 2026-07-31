@@ -6,3 +6,7 @@ export type {
 export {
   RotationStrategy,
 } from "./services/rotationStrategy";
+
+export {
+  DefaultStrategyManager,
+} from "./services/strategyManager";
