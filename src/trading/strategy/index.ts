@@ -5,3 +5,7 @@ export type {
 export {
   BaseStrategy,
 } from "./services/baseStrategy";
+
+export {
+  StrategyManager,
+} from "./services/strategyManager";
