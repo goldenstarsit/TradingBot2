@@ -4,9 +4,9 @@ import type {
 
 
 export type TradingSignal =
-  "BUY" |
-  "SELL" |
-  "HOLD";
+  | "BUY"
+  | "SELL"
+  | "HOLD";
 
 
 export interface TradingSignalResult {
