@@ -8,6 +8,10 @@ import type {
 } from "../../engine/types/trading";
 
 
+const PROFIT_TARGET =
+  1.0;
+
+
 export class RotationStrategy
   implements TradingStrategy {
 
@@ -23,20 +27,11 @@ export class RotationStrategy
 
       return {
 
-        symbol:
-          context.symbol,
-
-        side:
-          "BUY",
-
-        price:
-          context.currentPrice,
-
-        timestamp:
-          Date.now(),
-
-        reason:
-          "Negative price variation",
+        symbol: context.symbol,
+        side: "BUY",
+        price: context.currentPrice,
+        timestamp: Date.now(),
+        reason: "Negative price variation",
 
       };
 
@@ -44,25 +39,17 @@ export class RotationStrategy
 
 
     if (
-      context.differencePercent > 0
+      context.differencePercent >=
+      PROFIT_TARGET
     ) {
 
       return {
 
-        symbol:
-          context.symbol,
-
-        side:
-          "SELL",
-
-        price:
-          context.currentPrice,
-
-        timestamp:
-          Date.now(),
-
-        reason:
-          "Positive price variation",
+        symbol: context.symbol,
+        side: "SELL",
+        price: context.currentPrice,
+        timestamp: Date.now(),
+        reason: "Profit target reached",
 
       };
 
