@@ -1,8 +1,4 @@
 import {
-  WebSocketManager,
-} from "./websocketManager";
-
-import {
   MarketDataManager,
 } from "../../marketData";
 
@@ -10,14 +6,18 @@ import type {
   Ticker,
 } from "../types/ticker";
 
+import {
+  BinanceSocketClient,
+} from "./binanceSocketClient";
+
 
 export class MarketStreamService {
 
 
   constructor(
 
-    private readonly websocket:
-      WebSocketManager,
+    private readonly socketClient:
+      BinanceSocketClient,
 
     private readonly marketData:
       MarketDataManager
@@ -25,10 +25,12 @@ export class MarketStreamService {
   ) {}
 
 
-  public start(): void {
+  public start(
+    symbols: string[]
+  ): void {
 
 
-    this.websocket.onTicker(
+    this.socketClient.onTicker(
       (
         ticker: Ticker
       ) => {
@@ -52,7 +54,17 @@ export class MarketStreamService {
     );
 
 
+    this.socketClient.connect(
+      symbols
+    );
+
   }
 
+
+  public stop(): void {
+
+    this.socketClient.disconnect();
+
+  }
 
 }
