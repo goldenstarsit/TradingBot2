@@ -24,3 +24,11 @@ export type {
 export {
   HealthMonitoringService,
 } from "./services/healthMonitoringService";
+
+export type {
+  DiagnosticsReport,
+} from "./types/diagnostics";
+
+export {
+  SystemDiagnosticsService,
+} from "./services/systemDiagnosticsService";
