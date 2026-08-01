@@ -21,3 +21,7 @@ export {
 export {
   BotControlManager,
 } from "./services/botControlManager";
+
+export {
+  RuntimeConfigurationService,
+} from "./services/runtimeConfigurationService";
