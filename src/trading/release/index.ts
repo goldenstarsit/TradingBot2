@@ -10,3 +10,7 @@ export {
 export {
   TradingEngineCoordinator,
 } from "./services/tradingEngineCoordinator";
+
+export {
+  ReleaseManager,
+} from "./services/releaseManager";
