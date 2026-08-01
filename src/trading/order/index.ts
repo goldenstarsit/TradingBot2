@@ -6,9 +6,9 @@ export type {
 } from "./types/order";
 
 export {
-  OrderExecutor,
-} from "./services/orderExecutor";
-
-export {
   OrderBuilder,
 } from "./services/orderBuilder";
+
+export {
+  OrderExecutor,
+} from "./services/orderExecutor";

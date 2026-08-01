@@ -5,31 +5,36 @@ export type OrderSide =
 
 export type OrderStatus =
   | "PENDING"
-  | "EXECUTED"
-  | "FAILED";
+  | "FILLED"
+  | "CANCELLED"
+  | "REJECTED";
 
 
 export interface Order {
 
-  readonly symbol: string;
+  id: string;
 
-  readonly side: OrderSide;
+  symbol: string;
 
-  readonly quantity: number;
+  side: OrderSide;
 
-  readonly price: number;
+  quantity: number;
 
-  readonly timestamp: number;
+  price: number;
+
+  status: OrderStatus;
+
+  timestamp: number;
 
 }
 
 
 export interface OrderResult {
 
-  readonly order: Order;
+  order: Order;
 
-  readonly status: OrderStatus;
+  status: OrderStatus;
 
-  readonly message: string;
+  message: string;
 
 }

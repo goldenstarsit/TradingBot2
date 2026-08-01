@@ -18,6 +18,9 @@ export class OrderBuilder {
 
     return {
 
+      id:
+        crypto.randomUUID(),
+
       symbol:
         signal.symbol,
 
@@ -28,6 +31,9 @@ export class OrderBuilder {
 
       price:
         signal.price,
+
+      status:
+        "PENDING",
 
       timestamp:
         Date.now(),
