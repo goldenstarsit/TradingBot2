@@ -32,3 +32,12 @@ export type {
 export {
   ProductionReadinessService,
 } from "./services/productionReadinessService";
+
+export type {
+  OptimizationResult,
+  OptimizationReport,
+} from "./types/optimization";
+
+export {
+  ReleaseOptimizationService,
+} from "./services/releaseOptimizationService";
