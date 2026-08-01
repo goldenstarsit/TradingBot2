@@ -18,3 +18,7 @@ export {
 export {
   ProfitLossCalculator,
 } from "./services/profitLossCalculator";
+
+export {
+  PortfolioPersistence,
+} from "./services/portfolioPersistence";
