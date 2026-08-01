@@ -35,3 +35,7 @@ export {
 export type {
   MonitoredTrade,
 } from "./services/tradeMonitoringService";
+
+export {
+  AnalyticsManager,
+} from "./services/analyticsManager";
