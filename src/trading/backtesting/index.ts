@@ -22,3 +22,11 @@ export type {
 export {
   BacktestExecutionEngine,
 } from "./services/backtestExecutionEngine";
+
+export {
+  StrategyOptimizationService,
+} from "./services/strategyOptimizationService";
+
+export type {
+  StrategyConfiguration,
+} from "./services/strategyOptimizationService";
