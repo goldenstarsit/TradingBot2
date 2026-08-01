@@ -34,3 +34,7 @@ export type {
 export {
   BacktestingManager,
 } from "./services/backtestingManager";
+
+export {
+  BacktestingAnalyticsService,
+} from "./services/backtestingAnalyticsService";
