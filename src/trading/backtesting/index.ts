@@ -10,3 +10,11 @@ export {
 export type {
   HistoricalCandle,
 } from "./services/historicalDataLoader";
+
+export {
+  IndicatorEngine,
+} from "./services/indicatorEngine";
+
+export type {
+  IndicatorSnapshot,
+} from "./services/indicatorEngine";
