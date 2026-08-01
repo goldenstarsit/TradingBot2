@@ -6,3 +6,7 @@ export type {
 export {
   BalanceManager,
 } from "./services/balanceManager";
+
+export {
+  PositionManager,
+} from "./services/positionManager";
