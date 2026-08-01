@@ -5,3 +5,7 @@ export type {
 export {
   ConfigurationService,
 } from "./services/configurationService";
+
+export {
+  ConfigurationStorageService,
+} from "./services/configurationStorageService";
