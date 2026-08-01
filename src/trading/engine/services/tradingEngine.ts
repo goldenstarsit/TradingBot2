@@ -7,6 +7,10 @@ import {
   DefaultStrategyManager,
 } from "../../strategy";
 
+import {
+  PortfolioManager,
+} from "../../portfolio";
+
 
 export class TradingEngine {
 
@@ -15,9 +19,16 @@ export class TradingEngine {
     new DefaultStrategyManager();
 
 
+  private readonly portfolio =
+    new PortfolioManager();
+
+
   public evaluate(
     context: TradingContext
   ): TradingSignal | null {
+
+
+    void this.portfolio;
 
 
     const strategy =
