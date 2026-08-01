@@ -32,3 +32,12 @@ export type {
 export {
   SystemDiagnosticsService,
 } from "./services/systemDiagnosticsService";
+
+export type {
+  RecoveryAction,
+  RecoveryRecord,
+} from "./types/recovery";
+
+export {
+  FailureRecoveryManager,
+} from "./services/failureRecoveryManager";
