@@ -27,3 +27,11 @@ export type {
   ProfitAnalytics,
   ProfitTrade,
 } from "./services/profitAnalyticsService";
+
+export {
+  TradeMonitoringService,
+} from "./services/tradeMonitoringService";
+
+export type {
+  MonitoredTrade,
+} from "./services/tradeMonitoringService";
