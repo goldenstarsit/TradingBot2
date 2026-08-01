@@ -1,3 +1,3 @@
 export {
-  TradingExecutor,
-} from "./tradingExecutor";
+  TradingAnalyticsIntegration,
+} from "./tradingAnalyticsIntegration";
