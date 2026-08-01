@@ -3,8 +3,16 @@ import type {
   OrderResult,
 } from "../types/order";
 
+import {
+  OrderValidator,
+} from "./orderValidator";
+
 
 export class OrderExecutor {
+
+
+  private readonly validator =
+    new OrderValidator();
 
 
   public async execute(
@@ -12,15 +20,47 @@ export class OrderExecutor {
   ): Promise<OrderResult> {
 
 
+    const validation =
+      this.validator.validate(
+        order
+      );
+
+
+    if (
+      !validation.valid
+    ) {
+
+      return {
+
+        order,
+
+        status:
+          "REJECTED",
+
+        message:
+          validation.reason,
+
+      };
+
+    }
+
+
     return {
 
-      order,
+      order: {
+
+        ...order,
+
+        status:
+          "FILLED",
+
+      },
 
       status:
-        "PENDING",
+        "FILLED",
 
       message:
-        "Order execution layer ready",
+        "Order executed successfully",
 
     };
 
