@@ -14,3 +14,7 @@ export {
 export {
   PortfolioValuation,
 } from "./services/portfolioValuation";
+
+export {
+  ProfitLossCalculator,
+} from "./services/profitLossCalculator";
