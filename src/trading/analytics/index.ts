@@ -9,3 +9,12 @@ export {
 export type {
   TradeRecord,
 } from "./services/tradePerformanceCalculator";
+
+export {
+  WinLossStatisticsService,
+} from "./services/winLossStatisticsService";
+
+export type {
+  WinLossStatistics,
+  StatisticsTrade,
+} from "./services/winLossStatisticsService";
