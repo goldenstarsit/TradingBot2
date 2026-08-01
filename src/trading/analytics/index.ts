@@ -18,3 +18,12 @@ export type {
   WinLossStatistics,
   StatisticsTrade,
 } from "./services/winLossStatisticsService";
+
+export {
+  ProfitAnalyticsService,
+} from "./services/profitAnalyticsService";
+
+export type {
+  ProfitAnalytics,
+  ProfitTrade,
+} from "./services/profitAnalyticsService";
