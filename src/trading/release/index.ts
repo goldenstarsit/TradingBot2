@@ -14,3 +14,12 @@ export {
 export {
   ReleaseManager,
 } from "./services/releaseManager";
+
+export type {
+  ValidationResult,
+  SystemValidationReport,
+} from "./types/systemValidation";
+
+export {
+  SystemValidationService,
+} from "./services/systemValidationService";
