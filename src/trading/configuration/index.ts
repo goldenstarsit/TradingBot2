@@ -17,3 +17,7 @@ export {
 export {
   BotLifecycleService,
 } from "./services/botLifecycleService";
+
+export {
+  BotControlManager,
+} from "./services/botControlManager";
