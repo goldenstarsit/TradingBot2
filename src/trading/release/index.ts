@@ -6,3 +6,7 @@ export type {
 export {
   IntegrationVerificationService,
 } from "./services/integrationVerificationService";
+
+export {
+  TradingEngineCoordinator,
+} from "./services/tradingEngineCoordinator";
