@@ -6,13 +6,22 @@ import {
   OrderManager,
 } from "../order";
 
+import {
+  RiskManager,
+} from "../risk";
+
 import type {
   Order,
 } from "../order";
 
 import type {
+  RiskCheckResult,
+} from "../risk";
+
+import type {
   TradingContext,
 } from "../engine";
+
 
 
 export class TradingExecutor {
@@ -24,7 +33,10 @@ export class TradingExecutor {
       TradingCoordinator,
 
     private readonly orderManager:
-      OrderManager
+      OrderManager,
+
+    private readonly riskManager:
+      RiskManager
 
   ) {}
 
@@ -34,7 +46,13 @@ export class TradingExecutor {
 
     context: TradingContext,
 
-    quantity: number
+    quantity: number,
+
+    accountBalance: number,
+
+    currentExposure: number,
+
+    portfolioValue: number
 
   ): Promise<Order | null> {
 
@@ -52,17 +70,49 @@ export class TradingExecutor {
     }
 
 
-    return this.orderManager.createAndExecute(
 
-      signal.symbol,
+    const order =
+      await this.orderManager.createAndExecute(
 
-      signal.side,
+        signal.symbol,
 
-      quantity,
+        signal.side,
 
-      signal.price
+        quantity,
 
-    );
+        signal.price
+
+      );
+
+
+
+    const riskResult:
+      RiskCheckResult =
+        this.riskManager.validateTrade(
+
+          order,
+
+          accountBalance,
+
+          currentExposure,
+
+          portfolioValue
+
+        );
+
+
+
+    if (
+      !riskResult.allowed
+    ) {
+
+      return null;
+
+    }
+
+
+
+    return order;
 
   }
 
