@@ -9,3 +9,7 @@ export {
 export {
   ConfigurationStorageService,
 } from "./services/configurationStorageService";
+
+export {
+  ConfigurationManager,
+} from "./services/configurationManager";
