@@ -15,3 +15,12 @@ export type {
   AlertRule,
   AlertResult,
 } from "./services/alertRuleEngine";
+
+export {
+  TradingEventAlertService,
+} from "./services/tradingEventAlertService";
+
+export type {
+  TradingEvent,
+  TradingEventType,
+} from "./services/tradingEventAlertService";
