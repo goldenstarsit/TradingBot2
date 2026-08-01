@@ -49,3 +49,7 @@ export type {
 export {
   ReleasePreparationService,
 } from "./services/releasePreparationService";
+
+export {
+  FinalProductionReleaseService,
+} from "./services/finalProductionReleaseService";
