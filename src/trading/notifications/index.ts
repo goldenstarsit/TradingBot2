@@ -24,3 +24,7 @@ export type {
   TradingEvent,
   TradingEventType,
 } from "./services/tradingEventAlertService";
+
+export {
+  AlertManager,
+} from "./services/alertManager";
