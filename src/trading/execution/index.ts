@@ -5,3 +5,7 @@ export {
 export {
   TradingNotificationIntegration,
 } from "./tradingNotificationIntegration";
+
+export {
+  TradingBacktestingIntegration,
+} from "./tradingBacktestingIntegration";
