@@ -14,3 +14,7 @@ export {
 export {
   ExposureManager,
 } from "./services/exposureManager";
+
+export {
+  DrawdownMonitor,
+} from "./services/drawdownMonitor";
