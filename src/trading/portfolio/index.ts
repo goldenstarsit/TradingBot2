@@ -10,3 +10,7 @@ export {
 export {
   PositionManager,
 } from "./services/positionManager";
+
+export {
+  PortfolioValuation,
+} from "./services/portfolioValuation";
