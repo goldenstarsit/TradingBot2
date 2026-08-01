@@ -41,3 +41,11 @@ export type {
 export {
   ReleaseOptimizationService,
 } from "./services/releaseOptimizationService";
+
+export type {
+  ReleasePreparation,
+} from "./types/releasePreparation";
+
+export {
+  ReleasePreparationService,
+} from "./services/releasePreparationService";
