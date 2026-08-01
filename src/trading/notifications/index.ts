@@ -28,3 +28,7 @@ export type {
 export {
   AlertManager,
 } from "./services/alertManager";
+
+export {
+  AlertStorageService,
+} from "./services/alertStorageService";
