@@ -6,3 +6,7 @@ export type {
 export {
   PositionRiskCalculator,
 } from "./services/positionRiskCalculator";
+
+export {
+  TradeRiskValidator,
+} from "./services/tradeRiskValidator";
