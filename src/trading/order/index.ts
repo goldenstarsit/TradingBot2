@@ -21,6 +21,10 @@ export {
   OrderFactory,
 } from "./services/orderFactory";
 
+export {
+  OrderStatusManager,
+} from "./services/orderStatusManager";
+
 export type {
   OrderValidationResult,
 } from "./services/orderValidator";
