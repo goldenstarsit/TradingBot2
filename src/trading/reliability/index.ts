@@ -49,3 +49,7 @@ export type {
 export {
   PerformanceMonitoringService,
 } from "./services/performanceMonitoringService";
+
+export {
+  ProductionReliabilityManager,
+} from "./services/productionReliabilityManager";
