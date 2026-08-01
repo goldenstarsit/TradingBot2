@@ -9,3 +9,7 @@ export {
 export {
   TradingBacktestingIntegration,
 } from "./tradingBacktestingIntegration";
+
+export {
+  TradingBotControlIntegration,
+} from "./tradingBotControlIntegration";
