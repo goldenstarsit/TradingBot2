@@ -18,3 +18,7 @@ export {
 export {
   DrawdownMonitor,
 } from "./services/drawdownMonitor";
+
+export {
+  RiskLimitsService,
+} from "./services/riskLimitsService";
