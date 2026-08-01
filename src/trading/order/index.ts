@@ -12,3 +12,11 @@ export {
 export {
   OrderExecutor,
 } from "./services/orderExecutor";
+
+export {
+  OrderValidator,
+} from "./services/orderValidator";
+
+export type {
+  OrderValidationResult,
+} from "./services/orderValidator";
