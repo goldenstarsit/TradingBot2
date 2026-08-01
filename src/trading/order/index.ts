@@ -17,6 +17,10 @@ export {
   OrderValidator,
 } from "./services/orderValidator";
 
+export {
+  OrderFactory,
+} from "./services/orderFactory";
+
 export type {
   OrderValidationResult,
 } from "./services/orderValidator";
