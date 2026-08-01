@@ -30,3 +30,7 @@ export {
 export type {
   StrategyConfiguration,
 } from "./services/strategyOptimizationService";
+
+export {
+  BacktestingManager,
+} from "./services/backtestingManager";
