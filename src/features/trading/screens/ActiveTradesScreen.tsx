@@ -13,8 +13,8 @@ import {
 
 
 import {
-  tradingDataService,
-} from "../services/tradingDataService";
+  getTradingFrontendState,
+} from "../../../trading/frontend/tradingStateAdapter";
 
 
 import {
@@ -26,8 +26,12 @@ import {
 export function ActiveTradesScreen() {
 
 
+  const state =
+    getTradingFrontendState();
+
+
   const trades =
-    tradingDataService.getActiveTrades();
+    state.trades;
 
 
 
@@ -43,7 +47,6 @@ export function ActiveTradesScreen() {
 
 
       {
-
         trades.length === 0 ? (
 
           <Text style={styles.subtitle}>

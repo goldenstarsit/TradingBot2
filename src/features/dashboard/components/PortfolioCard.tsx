@@ -1,10 +1,21 @@
-import React from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
+
 
 import {
   View,
   Text,
   StyleSheet,
 } from "react-native";
+
+
+import {
+  getTradingFrontendState,
+  subscribeTradingState,
+  TradingFrontendState,
+} from "../../../trading/frontend/tradingStateAdapter";
 
 
 import {
@@ -16,18 +27,35 @@ import {
 export function PortfolioCard() {
 
 
-  const portfolio = {
+  const [state, setState] = useState<TradingFrontendState>(
 
-    balance:
-      0,
+    getTradingFrontendState()
 
-    equity:
-      0,
+  );
 
-    openPositions:
-      0,
 
-  };
+
+  useEffect(() => {
+
+
+    const unsubscribe =
+
+      subscribeTradingState(
+
+        updatedState => {
+
+          setState(updatedState);
+
+        }
+
+      );
+
+
+
+    return unsubscribe;
+
+
+  }, []);
 
 
 
@@ -42,29 +70,23 @@ export function PortfolioCard() {
 
 
       <Text style={styles.item}>
-
         Balance:
         {" "}
-        {portfolio.balance}
-
+        {state.balance}
       </Text>
 
 
       <Text style={styles.item}>
-
         Equity:
         {" "}
-        {portfolio.equity}
-
+        {state.equity}
       </Text>
 
 
       <Text style={styles.item}>
-
-        Open Positions:
+        Active Trades:
         {" "}
-        {portfolio.openPositions}
-
+        {state.activeTrades}
       </Text>
 
 

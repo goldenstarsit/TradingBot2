@@ -1,20 +1,17 @@
 import {
-  updateAppState,
-} from "../../state/appState";
+  updateTradingFrontendState,
+} from "../frontend/tradingStateAdapter";
 
 
 
 export class TradingEngineBootstrap {
 
 
-  private initialized:
-    boolean = false;
+  private initialized = false;
 
 
 
-  public initialize():
-
-    void {
+  public initialize() {
 
 
     if (this.initialized) {
@@ -24,12 +21,16 @@ export class TradingEngineBootstrap {
     }
 
 
+
     this.initialized = true;
 
 
-    updateAppState({
 
-      connected: true,
+    updateTradingFrontendState({
+
+      botRunning: true,
+
+      marketConnected: true,
 
     });
 
@@ -38,11 +39,17 @@ export class TradingEngineBootstrap {
 
 
 
-  public isInitialized():
+  public shutdown() {
 
-    boolean {
 
-    return this.initialized;
+    updateTradingFrontendState({
+
+      botRunning: false,
+
+      marketConnected: false,
+
+    });
+
 
   }
 
@@ -52,4 +59,5 @@ export class TradingEngineBootstrap {
 
 
 export const tradingEngineBootstrap =
+
   new TradingEngineBootstrap();

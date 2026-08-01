@@ -1,4 +1,8 @@
-import React from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
+
 
 import {
   View,
@@ -8,8 +12,10 @@ import {
 
 
 import {
-  getAppState,
-} from "../../../state/appState";
+  getTradingFrontendState,
+  subscribeTradingState,
+  TradingFrontendState,
+} from "../../../trading/frontend/tradingStateAdapter";
 
 
 import {
@@ -21,8 +27,35 @@ import {
 export function BotStatusCard() {
 
 
-  const state =
-    getAppState();
+  const [state, setState] = useState<TradingFrontendState>(
+
+    getTradingFrontendState()
+
+  );
+
+
+
+  useEffect(() => {
+
+
+    const unsubscribe =
+
+      subscribeTradingState(
+
+        updatedState => {
+
+          setState(updatedState);
+
+        }
+
+      );
+
+
+
+    return unsubscribe;
+
+
+  }, []);
 
 
 
@@ -37,29 +70,16 @@ export function BotStatusCard() {
 
 
       <Text style={styles.item}>
-
         Running:
         {" "}
         {state.botRunning ? "YES" : "NO"}
-
       </Text>
 
 
       <Text style={styles.item}>
-
-        Connected:
+        Market:
         {" "}
-        {state.connected ? "YES" : "NO"}
-
-      </Text>
-
-
-      <Text style={styles.item}>
-
-        Updated:
-        {" "}
-        {state.lastUpdate ?? "N/A"}
-
+        {state.marketConnected ? "CONNECTED" : "DISCONNECTED"}
       </Text>
 
 
