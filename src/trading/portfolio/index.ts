@@ -22,3 +22,7 @@ export {
 export {
   PortfolioPersistence,
 } from "./services/portfolioPersistence";
+
+export {
+  PortfolioManager,
+} from "./services/portfolioManager";
