@@ -3,14 +3,12 @@ import {
 } from "../coordinator";
 
 import {
-  OrderBuilder,
-  OrderExecutor,
+  OrderManager,
 } from "../order";
 
 import type {
-  OrderResult,
+  Order,
 } from "../order";
-
 
 import type {
   TradingContext,
@@ -25,19 +23,20 @@ export class TradingExecutor {
     private readonly coordinator:
       TradingCoordinator,
 
-    private readonly orderBuilder:
-      OrderBuilder,
-
-    private readonly orderExecutor:
-      OrderExecutor
+    private readonly orderManager:
+      OrderManager
 
   ) {}
 
 
+
   public async execute(
+
     context: TradingContext,
+
     quantity: number
-  ): Promise<OrderResult | null> {
+
+  ): Promise<Order | null> {
 
 
     const signal =
@@ -53,15 +52,16 @@ export class TradingExecutor {
     }
 
 
-    const order =
-      this.orderBuilder.build(
-        signal,
-        quantity
-      );
+    return this.orderManager.createAndExecute(
 
+      signal.symbol,
 
-    return this.orderExecutor.execute(
-      order
+      signal.side,
+
+      quantity,
+
+      signal.price
+
     );
 
   }
