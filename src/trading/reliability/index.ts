@@ -15,3 +15,12 @@ export type {
 export {
   ErrorRecoveryService,
 } from "./services/errorRecoveryService";
+
+export type {
+  HealthReport,
+  HealthStatus,
+} from "./types/health";
+
+export {
+  HealthMonitoringService,
+} from "./services/healthMonitoringService";
