@@ -25,6 +25,10 @@ export {
   OrderStatusManager,
 } from "./services/orderStatusManager";
 
+export {
+  OrderHistoryManager,
+} from "./services/orderHistoryManager";
+
 export type {
   OrderValidationResult,
 } from "./services/orderValidator";
