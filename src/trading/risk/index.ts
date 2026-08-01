@@ -22,3 +22,7 @@ export {
 export {
   RiskLimitsService,
 } from "./services/riskLimitsService";
+
+export {
+  RiskManager,
+} from "./services/riskManager";
