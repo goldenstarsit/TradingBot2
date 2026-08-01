@@ -10,3 +10,7 @@ export {
 export {
   TradeRiskValidator,
 } from "./services/tradeRiskValidator";
+
+export {
+  ExposureManager,
+} from "./services/exposureManager";
