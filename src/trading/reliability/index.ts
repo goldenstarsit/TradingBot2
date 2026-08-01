@@ -41,3 +41,11 @@ export type {
 export {
   FailureRecoveryManager,
 } from "./services/failureRecoveryManager";
+
+export type {
+  PerformanceMetric,
+} from "./types/performance";
+
+export {
+  PerformanceMonitoringService,
+} from "./services/performanceMonitoringService";
