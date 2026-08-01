@@ -13,3 +13,7 @@ export {
 export {
   ConfigurationManager,
 } from "./services/configurationManager";
+
+export {
+  BotLifecycleService,
+} from "./services/botLifecycleService";
