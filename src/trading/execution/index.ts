@@ -13,3 +13,7 @@ export {
 export {
   TradingBotControlIntegration,
 } from "./tradingBotControlIntegration";
+
+export {
+  TradingReliabilityIntegration,
+} from "./tradingReliabilityIntegration";
