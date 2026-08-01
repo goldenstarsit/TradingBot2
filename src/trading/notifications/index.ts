@@ -32,3 +32,7 @@ export {
 export {
   AlertStorageService,
 } from "./services/alertStorageService";
+
+export {
+  NotificationManager,
+} from "./services/notificationManager";
