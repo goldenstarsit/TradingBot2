@@ -18,3 +18,7 @@ export {
 export type {
   IndicatorSnapshot,
 } from "./services/indicatorEngine";
+
+export {
+  BacktestExecutionEngine,
+} from "./services/backtestExecutionEngine";
