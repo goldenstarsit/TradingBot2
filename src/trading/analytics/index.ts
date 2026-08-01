@@ -39,3 +39,11 @@ export type {
 export {
   AnalyticsManager,
 } from "./services/analyticsManager";
+
+export {
+  DashboardDataProvider,
+} from "./services/dashboardDataProvider";
+
+export type {
+  DashboardAnalyticsData,
+} from "./services/dashboardDataProvider";
